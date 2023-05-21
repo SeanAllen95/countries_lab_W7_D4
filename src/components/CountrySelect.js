@@ -5,11 +5,9 @@ const CountrySelect = ({countries, onCountrySelected}) => {
 
     const handleChange = function(event) {
         const selectedCountry = countries[event.target.value]
-        console.log(event.target.value)
+        // console.log(event.target.value)
         onCountrySelected(selectedCountry)
     }
-    
-    
     
     const countryItems = countries.map((country, index) => {
         
@@ -18,22 +16,17 @@ const CountrySelect = ({countries, onCountrySelected}) => {
         <ListItem 
         country={country} 
         key={index} 
-        onCountrySelected={onCountrySelected}
+        index={index}
         />
     )
-
-    
-    
 })
 
 return (
-    <label> Pick a Country: 
     
-    <select name="countrySelected" onChange={handleChange} >
-        <option value=""></option>
+    <select defaultValue="" onChange={handleChange} >
+        <option value="" >What is the capital of?</option>
         {countryItems}
     </select>
-    </label>
 )
 } 
 
